@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Diákok listája</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>E-mail</th>
+                <th>Név</th>
+                <th>Osztály</th>
+                <th>Első idősáv</th>
+                <th>Második idősáv</th>
+                <th>Harmadik idősáv</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for diak in diakok %}
+            <tr>
+                <td>{{ diak[0] }}</td>
+                <td>{{ diak[1] }}</td>
+                <td>{{ diak[2] }}</td>
+                <td>{{ diak[3] }}</td>
+                <td>{{ diak[4] }}</td>
+                <td>{{ diak[5] }}</td>
+                <td>{{ diak[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h2>Előadások regisztrált diákokkal</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Előadás</th>
+                <th>Regisztrált diákok száma</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eloadas, count in eloadasok_diakok.items() %}
+            <tr>
+                <td>{{ eloadas }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
